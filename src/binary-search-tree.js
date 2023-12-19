@@ -35,27 +35,31 @@ class BinarySearchTree {
     else search(this.roots);
   }
 
-  has(/*data*/) {
-    throw new NotImplementedError('Not implemented');
-    let curr = this.root;
+  has(data) {
+    let curr = this.roots;
+    console.log(curr);
     while(curr){
-      if(curr.value === data){
+      if(curr.data === data){
         return true;
       }
-      if(data > curr.value){
+      else if(data > curr.data){
         curr = curr.right;
       } else {
         curr = curr.left;
       }
     }
     return false;
-    //throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
   }
 
-  find(/*data*/) {
-
-    throw new NotImplementedError('Not implemented');
+  find(data) {
+    let curr = this.roots;
+    while(curr){
+      if(!curr || !curr.data) return null;
+      else if(curr.data === data) return curr;
+      else if(curr.data < data) curr = curr.right;
+      else if(curr.data >= data) curr = curr.left;
+    }
+    return null;
   }
 
   remove(/* data */) {
